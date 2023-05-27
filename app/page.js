@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 async function getData() {
   let url;
   if (process.env.NODE_ENV === "production") {
-    url = "next-events-dcmwtrfmf-karin210.vercel.app";
+    url = "next-events-pi-sandy.vercel.app";
   } else {
     url = "http://localhost:3000";
   }
