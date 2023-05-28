@@ -1,19 +1,14 @@
 import Image from "next/image";
-import styles from "./page.module.css";
-import getevents from "./actions/getevents";
+import styles from "./styles/page.module.scss";
+import Controls from "./components/Controls";
+import Events from "./components/Events";
 
-export default async function Home() {
-  const events = await getevents();
+export default function Home() {
   return (
-    <main>
-      <article>
-        {events.map((item) => (
-          <>
-            <h2>{item.id}</h2>
-            <img className={styles.img} src={item.image} alt={item.id} />
-          </>
-        ))}
-      </article>
+    <main className={styles.main}>
+      <Controls />
+      <h1 className={styles.title}>Trending events</h1>
+      <Events />
     </main>
   );
 }
