@@ -19,7 +19,6 @@ export default function Events() {
   }, []);
 
   return (
-    // <h1>Events</h1>
     <section className={styles.events}>
       {events.map((item) => (
         <article className={styles.item} key={item.id}>

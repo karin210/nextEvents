@@ -5,11 +5,13 @@ import styles from "./styles/Header.module.scss";
 export default function Header() {
   return (
     <header className={styles.header}>
-      <Link href="/" className={styles.home}>
-        HotEvents
-      </Link>
       <section>
-        <span></span>
+        <Link href="/" className={styles.home}>
+          HotEvents
+        </Link>
+      </section>
+      <section>
+        <Link href="/events">Events</Link>
         <span></span>
       </section>
     </header>

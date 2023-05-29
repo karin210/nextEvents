@@ -1,4 +1,7 @@
+@use "../../styles/abstracts/mixins.scss";
 .header {
+  @include mixins.flex(row, wrap);
+  justify-content: space-evenly;
   background-color: ghostwhite;
 }
 
