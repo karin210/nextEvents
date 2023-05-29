@@ -28,6 +28,7 @@ export default function Events() {
 
   return (
     <div>
+      <h1>Events</h1>
       <Controls />
       <section className={styles.events}>
         {events.map((item) => (
