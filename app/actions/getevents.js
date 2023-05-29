@@ -1,4 +1,4 @@
-import clientPromise from "@/app/utils/mongodb";
+import clientPromise from "../utils/mongodb";
 
 export default async function getevents() {
   const client = await clientPromise;

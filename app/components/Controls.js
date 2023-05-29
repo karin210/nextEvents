@@ -1,26 +1,34 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./styles/Controls.module.scss";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-export default async function Controls() {
+export default function Controls() {
+  const [cityOption, setCityOption] = useState("");
+  const [cities, setCities] = useState([]);
   const searchParams = useSearchParams();
   const pathName = usePathname();
   const current = new URLSearchParams(pathName);
   const router = useRouter();
-  // const res = await fetch(
-  //   "https://next-events-md9uta47a-karin210.vercel.app/api/cities"
-  // );
-  // const cities = await res.json();
 
-  let input;
-  function inputValue(e) {
-    input = e.target.value;
+  useEffect(() => {
+    async function getCities() {
+      const res = await fetch(
+        "https://next-events-karin210.vercel.app/api/cities"
+      );
+      const cities = await res.json();
+      setCities(cities);
+    }
+    getCities();
+  }, []);
+
+  function handleChange(e) {
+    setCityOption(e.target.value);
   }
-
+  console.log(cityOption);
   function applyFilter(e) {
     e.preventDefault();
-    current.set("city", input);
+    current.set("city", cityOption);
     let query = current.toString();
     const url = pathName + "events?" + query;
     router.push(url);
@@ -29,11 +37,16 @@ export default async function Controls() {
   return (
     <form onSubmit={applyFilter}>
       <label htmlFor="city">City</label>
-      {/* <select onChange={inputValue} name="city" id="city">
+      <select onChange={handleChange} name="city" id="city">
+        <option value="all" key="All">
+          All
+        </option>
         {cities.map((city) => (
-          <option key={city}>{city}</option>
+          <option key={city} value={city}>
+            {city}
+          </option>
         ))}
-      </select> */}
+      </select>
       <button>Apply</button>
     </form>
   );
