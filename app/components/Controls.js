@@ -25,12 +25,19 @@ export default function Controls() {
   function handleChange(e) {
     setCityOption(e.target.value);
   }
-  console.log(cityOption);
   function applyFilter(e) {
     e.preventDefault();
+    if (cityOption === "All") {
+      router.push("/events");
+    }
     current.set("city", cityOption);
     let query = current.toString();
-    const url = pathName + "events?" + query;
+    let url;
+    if (pathName.includes("events")) {
+      url = pathName + "?" + query;
+    } else {
+      url = pathName + "events?" + query;
+    }
     router.push(url);
   }
 

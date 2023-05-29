@@ -1,0 +1,56 @@
+@use "../../styles/abstracts/mixins.scss";
+
+.events {
+  @include mixins.flex(row, wrap);
+  justify-content: center;
+  gap: 20px;
+
+  .item {
+    @include mixins.flex(column, nowrap);
+    width: 80%;
+    max-width: 400px;
+    height: 200px;
+    align-items: center;
+    border: 1px solid;
+
+    .fig {
+      width: 90%;
+      height: 65%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    .itemDetails {
+      @include mixins.flex(row, wrap);
+      width: 100%;
+      justify-content: space-evenly;
+
+      li {
+        display: inline-block;
+        list-style: none;
+      }
+
+      .rateBar {
+        @include mixins.flex(row, wrap);
+        width: 35%;
+        justify-content: center;
+        gap: 10px;
+
+        label {
+          font-size: 0.8rem;
+        }
+
+        progress {
+          width: 30%;
+        }
+      }
+    }
+  }
+}

@@ -1,15 +1,27 @@
-import React from "react";
-import getevents from "../actions/getevents";
+"use client";
+import { useSearchParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import styles from "./styles/Events.module.scss";
 
-export default async function Events() {
-  const events = await getevents();
-  const trends = events.filter((event) => event.trend);
-  console.log(trends);
+export default function Events() {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    async function getData() {
+      const res = await fetch(
+        "https://next-events-hyppouicf-karin210.vercel.app/api/events"
+      );
+      const allEvents = await res.json();
+      const trends = allEvents.filter((event) => event.trend);
+      setEvents(trends);
+    }
+    getData();
+  }, []);
 
   return (
+    // <h1>Events</h1>
     <section className={styles.events}>
-      {trends.map((item) => (
+      {events.map((item) => (
         <article className={styles.item} key={item.id}>
           <figure className={styles.fig}>
             <img src={item.image} alt={item.id} />
