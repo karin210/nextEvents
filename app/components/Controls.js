@@ -8,9 +8,10 @@ export default async function Controls() {
   const pathName = usePathname();
   const current = new URLSearchParams(pathName);
   const router = useRouter();
-  // const res = await fetch("http://localhost:3000/api/cities");
-  // const data = await res.json();
-  // console.log(data);
+  // const res = await fetch(
+  //   "https://next-events-md9uta47a-karin210.vercel.app/api/cities"
+  // );
+  // const cities = await res.json();
 
   let input;
   function inputValue(e) {
@@ -28,9 +29,11 @@ export default async function Controls() {
   return (
     <form onSubmit={applyFilter}>
       <label htmlFor="city">City</label>
-      <select onChange={inputValue} name="city" id="city">
-        <option>nn</option>
-      </select>
+      {/* <select onChange={inputValue} name="city" id="city">
+        {cities.map((city) => (
+          <option key={city}>{city}</option>
+        ))}
+      </select> */}
       <button>Apply</button>
     </form>
   );
