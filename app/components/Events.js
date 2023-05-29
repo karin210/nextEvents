@@ -1,16 +1,20 @@
-// "use client";
+"use client";
 import { useSearchParams } from "next/navigation";
 import React from "react";
-import getevents from "../actions/getevents";
 import styles from "./styles/Events.module.scss";
 
 export default async function Events() {
-  const events = await getevents();
-  let trends = events.filter((item) => item.trend);
+  const allEvents = await fetch(
+    "https://next-events-md9uta47a-karin210.vercel.app/api/events"
+  );
+  const res = await allEvents.json();
+  // let events = events.filter((item) => filter);
+  //   const query = new URLSearchParams()
 
   return (
     <section className={styles.events}>
-      {trends.map((item) => (
+      <h1>{res[0].id}</h1>
+      {/* {events.map((item) => (
         <article className={styles.item} key={item.id}>
           <figure className={styles.fig}>
             <img src={item.image} alt={item.id} />
@@ -29,7 +33,7 @@ export default async function Events() {
             </li>
           </ul>
         </article>
-      ))}
+      ))} */}
     </section>
   );
 }
