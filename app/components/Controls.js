@@ -56,9 +56,14 @@ export default function Controls() {
   }
 
   return (
-    <form onSubmit={applyFilter} className={styles.form}>
-      <label htmlFor="city">City</label>
-      <select onChange={handleCity} name="city" id="city">
+    <form className={styles.form} onSubmit={applyFilter}>
+      <label htmlFor="city">City:</label>
+      <select
+        className={styles.cities}
+        onChange={handleCity}
+        name="city"
+        id="city"
+      >
         <option value="all" key="All">
           All
         </option>
@@ -69,8 +74,13 @@ export default function Controls() {
         ))}
       </select>
 
-      <label htmlFor="month">Month</label>
-      <select onChange={handleMonth} name="month" id="month">
+      <label htmlFor="month">Month:</label>
+      <select
+        className={styles.months}
+        onChange={handleMonth}
+        name="month"
+        id="month"
+      >
         <option value="all" key="All">
           All
         </option>

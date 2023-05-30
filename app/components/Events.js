@@ -27,10 +27,11 @@ export default function Events() {
           </figure>
           <h2>{item.title}</h2>
           <ul className={styles.itemDetails}>
-            <li>{item.city}</li>
+            <li className={styles.details}>{item.city}</li>
             <li className={styles.rateBar}>
-              <label for="popularity">Popularity</label>
-
+              <label className={styles.details} for="popularity">
+                Ranking
+              </label>
               <progress
                 id="popularity"
                 max="5"

@@ -1,6 +1,26 @@
-.form {
-}
+@use "../../styles/abstracts/mixins.scss";
+@use "../../styles/abstracts/variables.scss";
 
-.cityInput {
-  width: 150px;
+.form {
+  @include mixins.flex(row, wrap);
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  .cities,
+  .months {
+    padding: 4px 2px;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    border: 1px solid lightgray;
+  }
+
+  button {
+    padding: 7px 7px;
+    font-weight: bold;
+    border-radius: 7px;
+    border: 1px solid #0c67a8;
+    color: whitesmoke;
+    background-color: variables.$controlsColor;
+  }
 }

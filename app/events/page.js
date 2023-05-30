@@ -47,6 +47,9 @@ export default function Events() {
       ) {
         setEvents(allEvents);
       }
+      if (city === null && month === null) {
+        setEvents(allEvents);
+      }
     }
     getData();
   }, [city, events.length, month]);
