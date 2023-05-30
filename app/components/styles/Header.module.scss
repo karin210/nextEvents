@@ -1,10 +1,15 @@
 @use "../../styles/abstracts/mixins.scss";
+@use "../../styles/abstracts/variables.scss";
+
 .header {
+  height: 60px;
   @include mixins.flex(row, wrap);
   justify-content: space-evenly;
-  background-color: ghostwhite;
+  align-content: center;
+  background-color: variables.$primaryColor;
 }
 
 .home {
-  color: purple;
+  @include mixins.logo;
+  height: 90%;
 }

@@ -1,0 +1,9 @@
+@use "./abstracts/variables.scss";
+@use "./abstracts/mixins.scss";
+
+.body {
+  @include mixins.flex(column, nowrap);
+  gap: variables.$sectionsGap;
+  background-color: variables.$backgroundColor;
+  font-family: variables.$defaultFontFam;
+}

@@ -42,7 +42,7 @@ export default function Controls() {
   }
 
   return (
-    <form onSubmit={applyFilter}>
+    <form onSubmit={applyFilter} className={styles.form}>
       <label htmlFor="city">City</label>
       <select onChange={handleChange} name="city" id="city">
         <option value="all" key="All">

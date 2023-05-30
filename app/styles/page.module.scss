@@ -1,8 +1,9 @@
+@use "./abstracts/variables.scss";
 @use "./abstracts/mixins.scss";
 
 .main {
   @include mixins.flex(column, nowrap);
-  gap: 20px;
+  gap: variables.$sectionItemsGap;
 
   .title {
     font-size: 1.5rem;
