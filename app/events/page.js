@@ -54,8 +54,10 @@ export default function Events() {
   useEffect(() => {
     if (events.length < 1) {
       setAnyEvents(0);
+    } else {
+      setAnyEvents(1);
     }
-  }, []);
+  }, [events]);
 
   return (
     <div>
