@@ -6,6 +6,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 export default function Controls() {
   const [cityOption, setCityOption] = useState("");
   const [cities, setCities] = useState([]);
+  const [months, setMonths] = useState([]);
   const searchParams = useSearchParams();
   const pathName = usePathname();
   const current = new URLSearchParams(pathName);
@@ -18,6 +19,12 @@ export default function Controls() {
       );
       const cities = await res.json();
       setCities(cities);
+
+      // const res1 = await fetch(
+      //   "https://next-events-karin210.vercel.app/api/months"
+      // );
+      // const months = await res1.json();
+      // setMonths(months);
     }
     getCities();
   }, []);
@@ -54,6 +61,18 @@ export default function Controls() {
           </option>
         ))}
       </select>
+
+      <label htmlFor="month">Month</label>
+      {/* <select onChange={handleChange} name="month" id="month">
+        <option value="all" key="All">
+          All
+        </option>
+        {months.map((month) => (
+          <option key={month} value={month}>
+            {month}
+          </option>
+        ))}
+      </select> */}
       <button>Apply</button>
     </form>
   );
