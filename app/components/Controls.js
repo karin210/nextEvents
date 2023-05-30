@@ -40,9 +40,9 @@ export default function Controls() {
 
   function applyFilter(e) {
     e.preventDefault();
-    // if (cityOption === "All") {
-    //   router.push("/events");
-    // }
+    if (cityOption === "All" && (monthOption === "All" || "undefined")) {
+      router.push("/events");
+    }
     current.set("city", cityOption);
     current.set("month", monthOption);
     let query = current.toString();
@@ -52,8 +52,7 @@ export default function Controls() {
     } else {
       url = pathName + "events?" + query;
     }
-    // router.push(url);
-    console.log(query);
+    router.push(url);
   }
 
   return (
