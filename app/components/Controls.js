@@ -5,6 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export default function Controls() {
   const [cityOption, setCityOption] = useState("");
+  const [monthOption, setMonthOption] = useState("");
   const [cities, setCities] = useState([]);
   const [months, setMonths] = useState([]);
   const searchParams = useSearchParams();
@@ -20,24 +21,30 @@ export default function Controls() {
       const cities = await res.json();
       setCities(cities);
 
-      // const res1 = await fetch(
-      //   "https://next-events-karin210.vercel.app/api/months"
-      // );
-      // const months = await res1.json();
-      // setMonths(months);
+      const res1 = await fetch(
+        "https://next-events-karin210.vercel.app/api/months"
+      );
+      const months = await res1.json();
+      setMonths(months);
     }
     getCities();
   }, []);
 
-  function handleChange(e) {
+  function handleCity(e) {
     setCityOption(e.target.value);
   }
+
+  function handleMonth(e) {
+    setMonthOption(e.target.value);
+  }
+
   function applyFilter(e) {
     e.preventDefault();
-    if (cityOption === "All") {
-      router.push("/events");
-    }
+    // if (cityOption === "All") {
+    //   router.push("/events");
+    // }
     current.set("city", cityOption);
+    current.set("month", monthOption);
     let query = current.toString();
     let url;
     if (pathName.includes("events")) {
@@ -45,13 +52,14 @@ export default function Controls() {
     } else {
       url = pathName + "events?" + query;
     }
-    router.push(url);
+    // router.push(url);
+    console.log(query);
   }
 
   return (
     <form onSubmit={applyFilter} className={styles.form}>
       <label htmlFor="city">City</label>
-      <select onChange={handleChange} name="city" id="city">
+      <select onChange={handleCity} name="city" id="city">
         <option value="all" key="All">
           All
         </option>
@@ -63,7 +71,7 @@ export default function Controls() {
       </select>
 
       <label htmlFor="month">Month</label>
-      {/* <select onChange={handleChange} name="month" id="month">
+      <select onChange={handleMonth} name="month" id="month">
         <option value="all" key="All">
           All
         </option>
@@ -72,7 +80,7 @@ export default function Controls() {
             {month}
           </option>
         ))}
-      </select> */}
+      </select>
       <button>Apply</button>
     </form>
   );
