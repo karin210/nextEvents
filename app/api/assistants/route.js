@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import clientPromise from "../../utils/mongodb";
 
 export async function POST(req, res) {
+  console.log("YEs");
   const client = await clientPromise;
   const db = client.db("eventsPage");
   const json = await req.json();
