@@ -20,6 +20,7 @@ export async function POST(req, res) {
           headers: {
             "Access-Control-Allow-Origin":
               "https://next-events-hyppouicf-karin210.vercel.app",
+            "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
           },
         }
       );
@@ -33,6 +34,7 @@ export async function POST(req, res) {
           headers: {
             "Access-Control-Allow-Origin":
               "https://next-events-hyppouicf-karin210.vercel.app",
+            "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
           },
         }
       );
