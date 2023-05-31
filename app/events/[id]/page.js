@@ -35,10 +35,10 @@ export default function Page() {
       "https://next-events-karin210.vercel.app/api/assistants",
       {
         method: "POST",
-        // headers: {
-        //   "Access-Control-Allow-Origin": "*",
-        //   "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-        // },
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        },
         body: JSON.stringify(input),
       }
     )
