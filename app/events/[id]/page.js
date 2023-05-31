@@ -16,12 +16,12 @@ export default function Page() {
 
   useEffect(() => {
     async function getAssistants() {
-      const res = await fetch("http://localhost:3000/api/assistants", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await fetch(
+        "https://next-events-karin210.vercel.app/api/assistants",
+        {
+          method: "GET",
+        }
+      );
       const data = await res.json();
       console.log(data);
     }
@@ -31,13 +31,17 @@ export default function Page() {
   function handleSubmit(e) {
     e.preventDefault();
     console.log(input);
-    const res = fetch("http://localhost:3000/api/assistants", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(input),
-    })
+    const res = fetch(
+      "https://next-events-karin210.vercel.app/api/assistants",
+      {
+        method: "POST",
+        // headers: {
+        //   "Access-Control-Allow-Origin": "*",
+        //   "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        // },
+        body: JSON.stringify(input),
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
