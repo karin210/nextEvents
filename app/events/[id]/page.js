@@ -14,19 +14,19 @@ export default function Page() {
     setInput({ email: e.target.value });
   }
 
-  useEffect(() => {
-    async function getAssistants() {
-      const res = await fetch(
-        "https://next-events-karin210.vercel.app/api/assistants",
-        {
-          method: "GET",
-        }
-      );
-      const data = await res.json();
-      console.log(data);
-    }
-    getAssistants();
-  }, []);
+  // useEffect(() => {
+  //   async function getAssistants() {
+  //     const res = await fetch(
+  //       "https://next-events-karin210.vercel.app/api/assistants",
+  //       {
+  //         method: "GET",
+  //       }
+  //     );
+  //     const data = await res.json();
+  //     console.log(data);
+  //   }
+  //   getAssistants();
+  // }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -35,10 +35,10 @@ export default function Page() {
       "https://next-events-karin210.vercel.app/api/assistants",
       {
         method: "POST",
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-        },
+        // headers: {
+        //   "Access-Control-Allow-Origin": "*",
+        //   "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        // },
         body: JSON.stringify(input),
       }
     )
