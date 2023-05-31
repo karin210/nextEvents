@@ -13,3 +13,18 @@
   background-color: variables.$backgroundColor;
   color: #121212;
 }
+
+@mixin eventsLayout() {
+  @include flex(row, wrap);
+  justify-content: center;
+  gap: variables.$sectionItemsGap;
+}
+
+@mixin singleEventCard() {
+  width: 80%;
+  max-width: 400px;
+  height: 230px;
+  @include flex(column, nowrap);
+  align-items: center;
+  gap: 7px;
+}

@@ -1,17 +1,15 @@
 @use "../../styles/abstracts/mixins.scss";
+@use "../../styles/abstracts/variables.scss";
 
+.main {
+  @include mixins.flex(column, nowrap);
+  gap: variables.$sectionsGap;
+}
 .events {
-  @include mixins.flex(row, wrap);
-  justify-content: center;
-  gap: 20px;
+  @include mixins.eventsLayout();
 
   .item {
-    @include mixins.flex(column, nowrap);
-    width: 80%;
-    max-width: 400px;
-    height: 200px;
-    align-items: center;
-    border: 1px solid;
+    @include mixins.singleEventCard();
 
     .fig {
       width: 90%;

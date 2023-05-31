@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Controls from "../components/Controls";
@@ -63,32 +64,33 @@ export default function Events() {
   }, [events]);
 
   return (
-    <div>
+    <main className={styles.main}>
       <h1>Events</h1>
       <Controls />
       {anyEvents === 0 && <h2>Sorry, there is no events</h2>}
       <section className={styles.events}>
         {events.map((item) => (
           <article className={styles.item} key={item.id}>
-            <figure className={styles.fig}>
-              <img src={item.image} alt={item.id} />
-            </figure>
-            <h2>{item.title}</h2>
-            <ul className={styles.itemDetails}>
-              <li>{item.city}</li>
-              <li className={styles.rateBar}>
-                <label for="popularity">Popularity</label>
-
-                <progress
-                  id="popularity"
-                  max="5"
-                  value={item.popularity}
-                ></progress>
-              </li>
-            </ul>
+            <Link href={`/events/${item.id}`}>
+              <figure className={styles.fig}>
+                <img src={item.image} alt={item.id} />
+              </figure>
+              <h2>{item.title}</h2>
+              <ul className={styles.itemDetails}>
+                <li>{item.city}</li>
+                <li className={styles.rateBar}>
+                  <label for="popularity">Popularity</label>
+                  <progress
+                    id="popularity"
+                    max="5"
+                    value={item.popularity}
+                  ></progress>
+                </li>
+              </ul>
+            </Link>
           </article>
         ))}
       </section>
-    </div>
+    </main>
   );
 }
