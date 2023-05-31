@@ -31,16 +31,13 @@ export default function Page() {
   function handleSubmit(e) {
     e.preventDefault();
     console.log(input);
-    const res = fetch(
-      "https://next-events-hyppouicf-karin210.vercel.app/api/assistants",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(input),
-      }
-    )
+    const res = fetch("http://localhost:3000/api/assistants", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(input),
+    })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
