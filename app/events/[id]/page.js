@@ -16,15 +16,12 @@ export default function Page() {
 
   useEffect(() => {
     async function getAssistants() {
-      const res = await fetch(
-        "https://next-events-hyppouicf-karin210.vercel.app/api/assistants",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await fetch("http://localhost:3000/api/assistants", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       const data = await res.json();
       console.log(data);
     }
