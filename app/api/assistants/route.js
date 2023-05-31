@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import clientPromise from "../../utils/mongodb";
 
 export async function POST(req, res) {
-  console.log("YEs");
   const client = await clientPromise;
   const db = client.db("eventsPage");
   const json = await req.json();
@@ -12,15 +11,31 @@ export async function POST(req, res) {
     console.log(exist);
     if (!exist) {
       await db.collection("assistants").insertOne(json);
-      return NextResponse.json({
-        message: "Successful registration. Enjoy your event!",
-        status: 201,
-      });
+      return NextResponse.json(
+        {
+          message: "Successful registration. Enjoy your event!",
+          status: 201,
+        },
+        {
+          headers: {
+            "Access-Control-Allow-Origin":
+              "https://next-events-hyppouicf-karin210.vercel.app",
+          },
+        }
+      );
     } else {
-      return NextResponse.json({
-        message: "email already registered!",
-        status: 504,
-      });
+      return NextResponse.json(
+        {
+          message: "email already registered!",
+          status: 504,
+        },
+        {
+          headers: {
+            "Access-Control-Allow-Origin":
+              "https://next-events-hyppouicf-karin210.vercel.app",
+          },
+        }
+      );
     }
   }
 }

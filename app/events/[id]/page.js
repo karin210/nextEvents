@@ -18,7 +18,7 @@ export default function Page() {
     e.preventDefault();
     console.log(input);
     const res = fetch(
-      "https://next-events-pi-sandy.vercel.app/api/assistants",
+      "https://next-events-hyppouicf-karin210.vercel.app/api/assistants",
       {
         method: "POST",
         headers: {
