@@ -14,6 +14,23 @@ export default function Page() {
     setInput({ email: e.target.value });
   }
 
+  useEffect(() => {
+    async function getAssistants() {
+      const res = await fetch(
+        "https://next-events-hyppouicf-karin210.vercel.app/api/assistants",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await res.json();
+      console.log(data);
+    }
+    getAssistants();
+  }, []);
+
   function handleSubmit(e) {
     e.preventDefault();
     console.log(input);
