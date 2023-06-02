@@ -70,8 +70,8 @@ export default function Events() {
       {anyEvents === 0 && <h2>Sorry, there is no events</h2>}
       <section className={styles.events}>
         {events.map((item) => (
-          <article className={styles.item} key={item.id}>
-            <Link href={`/events/${item.id}`}>
+          <Link href={`/events/${item.id}`} key={item.id}>
+            <article className={styles.item}>
               <figure className={styles.fig}>
                 <img src={item.image} alt={item.id} />
               </figure>
@@ -87,8 +87,8 @@ export default function Events() {
                   ></progress>
                 </li>
               </ul>
-            </Link>
-          </article>
+            </article>
+          </Link>
         ))}
       </section>
     </main>
