@@ -1,29 +1,25 @@
-@use "../../styles/abstracts/mixins.scss";
-@use "../../styles/abstracts/variables.scss";
+@use "../../../styles/abstracts/mixins.scss";
+@use "../../../styles/abstracts/variables.scss";
 
-.events {
-  @include mixins.eventsLayout();
-  margin: 0 4%;
-
-  .a {
-    width: 90%;
-    max-width: 320px;
-  }
+.itemLink {
+  width: 100%;
+  max-width: 320px;
+  height: 350px;
 
   .item {
     @include mixins.singleEventCard();
     width: 100%;
+    height: 100%;
 
     .fig {
       width: 100%;
-      // height: 100%;
+      height: auto;
       border-radius: 7px;
-      // overflow: hidden;
-      border: 1px solid;
+      overflow: hidden;
 
       img {
-        width: 50%;
-        border: 1px solid;
+        width: 100%;
+        // height: 110%;
       }
     }
 

@@ -5,7 +5,7 @@ export async function GET() {
   const client = await clientPromise;
   const db = client.db("eventsPage");
   if (client) {
-    const data = await db.collection("events").distinct("Date.month");
+    const data = await db.collection("events").distinct("date.month");
     if (data) {
       return NextResponse.json(data);
     }

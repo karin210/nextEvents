@@ -6,7 +6,7 @@ export async function GET() {
   const db = client.db("eventsPage");
   if (client) {
     const data = await db.collection("events").findOne({
-      id: "lollapalooza-berlin",
+      id: "MS-Dockville-Festival",
     });
     if (data) {
       return NextResponse.json(data);

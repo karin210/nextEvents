@@ -15,15 +15,13 @@ export default function Controls() {
 
   useEffect(() => {
     async function getCities() {
-      const res = await fetch(
-        "https://next-events-karin210.vercel.app/api/cities"
-      );
+      // https://next-events-karin210.vercel.app/api/cities
+      const res = await fetch("http://localhost:3000/api/cities");
       const cities = await res.json();
       setCities(cities);
 
-      const res1 = await fetch(
-        "https://next-events-karin210.vercel.app/api/months"
-      );
+      // https://next-events-karin210.vercel.app/api/months
+      const res1 = await fetch("http://localhost:3000/api/months");
       const months = await res1.json();
       setMonths(months);
     }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./styles/page.module.scss";
 import Controls from "./components/Controls";
-import Events from "./components/Events";
+import Events from "./components/events/Events";
 
 export default function Home() {
   return (

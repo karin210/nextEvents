@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import styles from "./Event.module.scss";
@@ -34,9 +35,8 @@ export default function Page() {
 
   useEffect(() => {
     async function getData() {
-      const res = await fetch(
-        "https://next-events-hyppouicf-karin210.vercel.app/api/events"
-      );
+      // https://next-events-hyppouicf-karin210.vercel.app/api/events
+      const res = await fetch("http://localhost:3000/api/events");
       const allEvents = await res.json();
 
       const data = allEvents.find((item) => item.id === id);
@@ -48,7 +48,7 @@ export default function Page() {
   return (
     <main>
       <figure>
-        <img src={event.image} width={500} height={300} alt={event.title} />
+        <Image src={event.image} width={500} height={300} alt={event.title} />
       </figure>
       <section>
         <h1>{event.title}</h1>

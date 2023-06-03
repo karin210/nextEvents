@@ -1,0 +1,7 @@
+@use "../../../styles/abstracts/mixins.scss";
+@use "../../../styles/abstracts/variables.scss";
+
+.events {
+  @include mixins.eventsLayout();
+  margin: 0 4%;
+}

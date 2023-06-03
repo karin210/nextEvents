@@ -1,8 +1,10 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Controls from "../components/Controls";
+import EventCard from "../components/events/EventCard";
 import styles from "./styles/Events.module.scss";
 
 export default function Events() {
@@ -14,9 +16,8 @@ export default function Events() {
 
   useEffect(() => {
     async function getData() {
-      const res = await fetch(
-        "https://next-events-hyppouicf-karin210.vercel.app/api/events"
-      );
+      // https://next-events-hyppouicf-karin210.vercel.app/api/events
+      const res = await fetch("http://localhost:3000/api/events");
       const allEvents = await res.json();
 
       if (
@@ -24,7 +25,7 @@ export default function Events() {
         (month !== "All" || month !== "" || month !== "undefined")
       ) {
         const events = allEvents.filter(
-          (event) => event.city === city && event.Date.month === month
+          (event) => event.city === city && event.date.month.includes(month)
         );
         setEvents(events);
       }
@@ -39,7 +40,9 @@ export default function Events() {
         (month !== "All" || month !== "" || month !== "undefined") &&
         (city === "All" || city === "")
       ) {
-        const events = allEvents.filter((event) => event.Date.month === month);
+        const events = allEvents.filter((event) =>
+          event.date.month.includes(month)
+        );
         setEvents(events);
       }
       if (
@@ -63,6 +66,8 @@ export default function Events() {
     }
   }, [events]);
 
+  const date = new Date().toDateString();
+
   return (
     <main className={styles.main}>
       <h1>Events</h1>
@@ -70,25 +75,17 @@ export default function Events() {
       {anyEvents === 0 && <h2>Sorry, there is no events</h2>}
       <section className={styles.events}>
         {events.map((item) => (
-          <Link href={`/events/${item.id}`} key={item.id}>
-            <article className={styles.item}>
-              <figure className={styles.fig}>
-                <img src={item.image} alt={item.id} />
-              </figure>
-              <h2>{item.title}</h2>
-              <ul className={styles.itemDetails}>
-                <li>{item.city}</li>
-                <li className={styles.rateBar}>
-                  <label for="popularity">Popularity</label>
-                  <progress
-                    id="popularity"
-                    max="5"
-                    value={item.popularity}
-                  ></progress>
-                </li>
-              </ul>
-            </article>
-          </Link>
+          <EventCard
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            image={item.image}
+            city={item.city}
+            country={item.country}
+            popularity={item.popularity}
+            lapse={item.date.lapse}
+            finished={date > item.date.finish}
+          />
         ))}
       </section>
     </main>
