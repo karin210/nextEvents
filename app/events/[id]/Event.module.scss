@@ -71,6 +71,8 @@
 
   .form {
     @include mixins.flex(column, nowrap);
+    width: 100%;
+    max-width: 800px;
     padding: 5%;
     gap: 18px;
     align-items: center;
@@ -78,19 +80,20 @@
     border: 1px solid lightgray;
 
     label {
-      font-size: clamp(0.9rem, 1.5vw, 1.5rem);
+      font-size: clamp(1rem, 1.5vw, 1.5rem);
       font-weight: bold;
     }
 
     input {
-      font-size: clamp(0.83rem, 1.5vw, 1.2rem);
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
     }
 
     button {
       width: 50%;
+      max-width: 150px;
       padding: clamp(3px, 2%, 8px) 0;
       font-weight: bold;
-      font-size: clamp(0.83rem, 1.5vw, 1.2rem);
+      font-size: clamp(0.9rem, 1.5vw, 1.2rem);
       border: 2px solid rgba(255, 200, 19, 0.664);
       border-radius: 7px;
       background-color: variables.$controlsColor;
@@ -117,9 +120,9 @@
   }
 
   .emailExistText {
-    color: red;
+    color: darkorange;
     padding: 10px;
-    border: 1px solid lightgray;
+    border: 2px solid lightgray;
     border-radius: 8px;
   }
 }
