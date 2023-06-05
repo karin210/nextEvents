@@ -19,10 +19,9 @@ export default function Events() {
       // https://next-events-hyppouicf-karin210.vercel.app/api/events
       const res = await fetch("http://localhost:3000/api/events");
       const allEvents = await res.json();
-
       if (
-        (city !== "All" || city !== "") &&
-        (month !== "All" || month !== "" || month !== "undefined")
+        (city !== "all" || city !== "") &&
+        (month !== "all" || month !== "" || month !== "undefined")
       ) {
         const events = allEvents.filter(
           (event) => event.city === city && event.date.month.includes(month)
@@ -30,15 +29,15 @@ export default function Events() {
         setEvents(events);
       }
       if (
-        (city !== "All" || city !== "") &&
-        (month === "All" || month === "" || month === "undefined")
+        (city !== "all" || city !== "") &&
+        (month === "all" || month === "" || month === "undefined")
       ) {
         const events1 = allEvents.filter((event) => event.city === city);
         setEvents(events1);
       }
       if (
-        (month !== "All" || month !== "" || month !== "undefined") &&
-        (city === "All" || city === "")
+        (month !== "all" || month !== "" || month !== "undefined") &&
+        (city === "all" || city === "")
       ) {
         const events = allEvents.filter((event) =>
           event.date.month.includes(month)
@@ -46,8 +45,8 @@ export default function Events() {
         setEvents(events);
       }
       if (
-        (city === "All" || city === "") &&
-        (month === "All" || month === "" || month === "undefined")
+        (city === "all" || city === "") &&
+        (month === "all" || month === "" || month === "undefined")
       ) {
         setEvents(allEvents);
       }
@@ -66,11 +65,8 @@ export default function Events() {
     }
   }, [events]);
 
-  const date = new Date().toDateString();
-
   return (
     <main className={styles.main}>
-      <h1>Events</h1>
       <Controls />
       {anyEvents === 0 && <h2>Sorry, there is no events</h2>}
       <section className={styles.events}>
@@ -84,7 +80,8 @@ export default function Events() {
             country={item.country}
             popularity={item.popularity}
             lapse={item.date.lapse}
-            finished={date > item.date.finish}
+            year={item.date.year}
+            topic={item.topic}
           />
         ))}
       </section>

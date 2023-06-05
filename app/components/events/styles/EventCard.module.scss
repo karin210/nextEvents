@@ -27,29 +27,33 @@
       font-size: 1.2rem;
     }
 
-    .itemDetails {
-      @include mixins.flex(row, wrap);
-      width: 100%;
-      justify-content: space-evenly;
+    .detailsList {
+      @include mixins.flex(column, nowrap);
+      gap: 7px;
+      color: #757575;
+
+      .detailsRow {
+        @include mixins.flex(row, wrap);
+        justify-content: space-evenly;
+        gap: 10px;
+      }
 
       li {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         display: inline-block;
         list-style: none;
       }
 
-      .rateBar {
+      .detailStars {
         @include mixins.flex(row, wrap);
-        width: 35%;
-        justify-content: center;
-        gap: 10px;
+        // width: 35%;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 5px;
 
-        label {
-          font-size: 0.9rem;
-        }
-
-        progress {
-          width: 30%;
+        .startIcon {
+          width: 18px;
+          height: auto;
         }
       }
     }

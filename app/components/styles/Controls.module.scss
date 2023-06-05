@@ -1,11 +1,45 @@
 @use "../../styles/abstracts/mixins.scss";
 @use "../../styles/abstracts/variables.scss";
 
+.filterBtn {
+  padding: 5px;
+  position: relative;
+  z-index: 1;
+  left: 80%;
+  bottom: 20px;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+}
+
+.showControls {
+  position: relative;
+  height: 100px;
+}
+
+.hiddeControls {
+  position: relative;
+  margin-top: -300px;
+}
+
 .form {
   @include mixins.flex(row, wrap);
-  justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
+  transition: 1s;
+  left: 5%;
+
+  .selectOptions {
+    @include mixins.flex(row, wrap);
+    gap: variables.$sectionItemsGap;
+  }
+
+  .cities option {
+    height: 150px;
+  }
+
+  p {
+    font-weight: bold;
+  }
 
   .cities,
   .months {
@@ -22,5 +56,15 @@
     border: 1px solid rgba(255, 200, 19, 0.664);
     color: black;
     background-color: variables.$controlsColor;
+  }
+}
+
+@media (min-width: 374px) {
+  .filterBtn {
+    display: none;
+  }
+
+  .hiddeControls {
+    height: 100px;
   }
 }

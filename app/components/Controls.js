@@ -4,6 +4,7 @@ import styles from "./styles/Controls.module.scss";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export default function Controls() {
+  const [showControls, setShowControls] = useState(false);
   const [cityOption, setCityOption] = useState("");
   const [monthOption, setMonthOption] = useState("");
   const [cities, setCities] = useState([]);
@@ -53,42 +54,66 @@ export default function Controls() {
     router.push(url);
   }
 
-  return (
-    <form className={styles.form} onSubmit={applyFilter}>
-      <label htmlFor="city">City:</label>
-      <select
-        className={styles.cities}
-        onChange={handleCity}
-        name="city"
-        id="city"
-      >
-        <option value="all" key="All">
-          All
-        </option>
-        {cities.map((city) => (
-          <option key={city} value={city}>
-            {city}
-          </option>
-        ))}
-      </select>
+  function showFilters() {
+    setShowControls(!showControls);
+  }
 
-      <label htmlFor="month">Month:</label>
-      <select
-        className={styles.months}
-        onChange={handleMonth}
-        name="month"
-        id="month"
+  return (
+    <section className={styles.controlsContainer}>
+      <button onClick={showFilters} className={styles.filterBtn}>
+        Filters
+      </button>
+      <form
+        className={
+          showControls
+            ? `${styles.form} ${styles.showControls}`
+            : `${styles.form} ${styles.hiddeControls}`
+        }
+        onSubmit={applyFilter}
       >
-        <option value="all" key="All">
-          All
-        </option>
-        {months.map((month) => (
-          <option key={month} value={month}>
-            {month}
-          </option>
-        ))}
-      </select>
-      <button>Apply</button>
-    </form>
+        <div>
+          <p className={styles.filterText}>Filter by:</p>
+        </div>
+        <div className={styles.selectOptions}>
+          <div>
+            <label htmlFor="city">City:</label>
+            <select
+              className={styles.cities}
+              onChange={handleCity}
+              name="city"
+              id="city"
+            >
+              <option value="all" key="All">
+                All
+              </option>
+              {cities.map((city) => (
+                <option key={city} value={city}>
+                  {city}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label htmlFor="month">Month:</label>
+            <select
+              className={styles.months}
+              onChange={handleMonth}
+              name="month"
+              id="month"
+            >
+              <option value="all" key="All">
+                All
+              </option>
+              {months.map((month) => (
+                <option key={month} value={month}>
+                  {month}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+        <button>Apply</button>
+      </form>
+    </section>
   );
 }

@@ -1,4 +1,128 @@
 @use "../../styles/abstracts/mixins.scss";
+@use "../../styles/abstracts/variables.scss";
 
-.event {
+.main {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 90%;
+  max-width: 1500px;
+  margin: 0 auto;
+  gap: variables.$sectionItemsGap;
+  // border: 1px solid;
+
+  .title {
+    font-size: 1.5rem;
+  }
+  .row1 {
+    @include mixins.flex(row, wrap);
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+  }
+
+  .fig {
+    width: 100%;
+    max-width: 700px;
+
+    .img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .infoList {
+    @include mixins.flex(column, nowrap);
+    font-size: clamp(0.83rem, 1.5vw, 1.2rem);
+    padding: 5%;
+    justify-content: space-around;
+    list-style: none;
+    gap: 30px;
+    border-radius: 7px;
+    border: 1px solid lightgray;
+
+    .icon {
+      width: 20px;
+      height: auto;
+    }
+
+    .infoPair {
+      @include mixins.flex(row, wrap);
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .infoEven {
+      @include mixins.flex(row, wrap);
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+
+  .description {
+    font-size: clamp(0.9rem, 1.5vw, 1.3rem);
+    line-height: 1.7em;
+    // text-align: center;
+    // width: ;
+    // max-width: 500px;
+  }
+
+  .form {
+    @include mixins.flex(column, nowrap);
+    padding: 5%;
+    gap: 18px;
+    align-items: center;
+    border-radius: 7px;
+    border: 1px solid lightgray;
+
+    label {
+      font-size: clamp(0.9rem, 1.5vw, 1.5rem);
+      font-weight: bold;
+    }
+
+    input {
+      font-size: clamp(0.83rem, 1.5vw, 1.2rem);
+    }
+
+    button {
+      width: 50%;
+      padding: clamp(3px, 2%, 8px) 0;
+      font-weight: bold;
+      font-size: clamp(0.83rem, 1.5vw, 1.2rem);
+      border: 2px solid rgba(255, 200, 19, 0.664);
+      border-radius: 7px;
+      background-color: variables.$controlsColor;
+    }
+  }
+
+  .formResponse {
+    @include mixins.flex(row, wrap);
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .registrationIcon {
+    width: 50px;
+    height: auto;
+  }
+
+  .registeredText {
+    color: green;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+  }
+
+  .emailExistText {
+    color: red;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+  }
+}
+
+@media (min-width: 374px) {
 }

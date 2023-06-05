@@ -3,52 +3,10 @@
 
 .main {
   @include mixins.flex(column, nowrap);
+  height: auto;
+  min-height: 100dvh;
   gap: variables.$sectionsGap;
 }
 .events {
   @include mixins.eventsLayout();
-
-  .item {
-    @include mixins.singleEventCard();
-
-    .fig {
-      width: 90%;
-      height: 65%;
-      overflow: hidden;
-
-      img {
-        width: 100%;
-      }
-    }
-
-    h2 {
-      font-size: 1.2rem;
-    }
-
-    .itemDetails {
-      @include mixins.flex(row, wrap);
-      width: 100%;
-      justify-content: space-evenly;
-
-      li {
-        display: inline-block;
-        list-style: none;
-      }
-
-      .rateBar {
-        @include mixins.flex(row, wrap);
-        width: 35%;
-        justify-content: center;
-        gap: 10px;
-
-        label {
-          font-size: 0.8rem;
-        }
-
-        progress {
-          width: 30%;
-        }
-      }
-    }
-  }
 }

@@ -1,0 +1,9 @@
+@use "../../styles/abstracts/mixins.scss";
+@use "../../styles/abstracts/variables.scss";
+
+.footer {
+  background-color: variables.$primaryColor;
+  padding: 10px 0;
+  padding-left: 5%;
+  font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+}

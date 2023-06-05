@@ -3,5 +3,6 @@
 
 .events {
   @include mixins.eventsLayout();
+  height: 100%;
   margin: 0 4%;
 }

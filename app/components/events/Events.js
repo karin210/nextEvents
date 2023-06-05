@@ -20,8 +20,6 @@ export default function Events() {
     getData();
   }, []);
 
-  const date = new Date().toDateString();
-
   return (
     <section className={styles.events}>
       {events.map((item) => (
@@ -34,7 +32,8 @@ export default function Events() {
           country={item.country}
           popularity={item.popularity}
           lapse={item.date.lapse}
-          finished={date > item.date.finish}
+          year={item.date.year}
+          topic={item.topic}
         />
       ))}
     </section>

@@ -8,6 +8,7 @@ export async function GET() {
     const data = await db.collection("events").findOne({
       id: "MS-Dockville-Festival",
     });
+    console.log(Date(data.date.finish) > Date("2023-06-03"));
     if (data) {
       return NextResponse.json(data);
     }
