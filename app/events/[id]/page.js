@@ -5,9 +5,12 @@ import Event from "./Event";
 export async function generateMetadata({ params }) {
   const id = params.id;
   // https://next-events-hyppouicf-karin210.vercel.app/api/events
-  const res = await fetch("http://localhost:3000/api/events", {
-    next: { revalidate: 60 },
-  });
+  const res = await fetch(
+    "https://next-events-pi-sandy.vercel.app/api/events"
+    // {
+    //   next: { revalidate: 60 },
+    // }
+  );
   const allEvents = await res.json();
 
   const data = allEvents.find((item) => item.id === id);

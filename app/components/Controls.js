@@ -17,12 +17,16 @@ export default function Controls() {
   useEffect(() => {
     async function getCities() {
       // https://next-events-karin210.vercel.app/api/cities
-      const res = await fetch("http://localhost:3000/api/cities");
+      const res = await fetch(
+        "https://next-events-pi-sandy.vercel.app/api/cities"
+      );
       const cities = await res.json();
       setCities(cities);
 
       // https://next-events-karin210.vercel.app/api/months
-      const res1 = await fetch("http://localhost:3000/api/months");
+      const res1 = await fetch(
+        "https://next-events-pi-sandy.vercel.app/api/months"
+      );
       const months = await res1.json();
       setMonths(months);
     }
