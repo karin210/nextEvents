@@ -22,10 +22,11 @@
 }
 
 .form {
+  font-size: clamp(0.85rem, 1.5vw, 1.15rem);
   @include mixins.flex(row, wrap);
   align-items: center;
   gap: 10px;
-  transition: 1s;
+  transition: 0.7s;
   left: 5%;
 
   .selectOptions {
@@ -65,6 +66,6 @@
   }
 
   .hiddeControls {
-    height: 100px;
+    margin-top: 0;
   }
 }
