@@ -12,7 +12,9 @@ export default function Events() {
   // "https://next-events-hyppouicf-karin210.vercel.app/api/events"
   useEffect(() => {
     async function getData() {
-      const res = await fetch("http://localhost:3000/api/events");
+      const res = await fetch(
+        "https://next-events-pi-sandy.vercel.app/api/events"
+      );
       const allEvents = await res.json();
       const trends = allEvents.filter((event) => event.trend);
       setEvents(trends);
