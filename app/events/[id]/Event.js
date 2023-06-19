@@ -41,7 +41,6 @@ export default function Page() {
 
   useEffect(() => {
     async function getData() {
-      // https://next-events-hyppouicf-karin210.vercel.app/api/events
       const res = await fetch(
         "https://next-events-pi-sandy.vercel.app/api/events"
       );
