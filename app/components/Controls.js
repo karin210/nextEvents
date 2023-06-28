@@ -1,10 +1,13 @@
 "use client";
-import React, { useEffect, useState } from "react";
+// css
 import styles from "./styles/Controls.module.scss";
+// system tools
+import React, { useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export default function Controls() {
-  const [showControls, setShowControls] = useState(false);
+  const [showCities, setShowCities] = useState(false);
+  const [showMonths, setShowMonths] = useState(false);
   const [cityOption, setCityOption] = useState("");
   const [monthOption, setMonthOption] = useState("");
   const [cities, setCities] = useState([]);
@@ -31,6 +34,10 @@ export default function Controls() {
     getCities();
   }, []);
 
+  function stateToggler(setter, value) {
+    setter(!value);
+  }
+
   function handleCity(e) {
     setCityOption(e.target.value);
   }
@@ -56,65 +63,53 @@ export default function Controls() {
     router.push(url);
   }
 
-  function showFilters() {
-    setShowControls(!showControls);
-  }
-
   return (
     <section className={styles.controlsContainer}>
-      <button onClick={showFilters} className={styles.filterBtn}>
-        Filters
-      </button>
-      <form
-        className={
-          showControls
-            ? `${styles.form} ${styles.showControls}`
-            : `${styles.form} ${styles.hiddeControls}`
-        }
-        onSubmit={applyFilter}
-      >
+      <form className={styles.form} onSubmit={applyFilter}>
         <div>
-          <p className={styles.filterText}>Filter by:</p>
+          <p className={styles.filterText}>Select:</p>
         </div>
-        <div className={styles.selectOptions}>
+        <div className={styles.filterBtns}>
           <div>
-            <label htmlFor="city">City:</label>
-            <select
-              className={styles.cities}
-              onChange={handleCity}
-              name="city"
-              id="city"
+            <button
+              onClick={() => stateToggler(setShowCities, showCities)}
+              className={styles.filterBtn}
             >
-              <option value="all" key="All">
-                All
-              </option>
+              City
+            </button>
+            <ul
+              onClick={handleCity}
+              className={showCities ? styles.showCities : styles.hideCities}
+            >
+              <li className={styles.option}>All</li>
               {cities.map((city) => (
-                <option key={city} value={city}>
+                <li className={styles.option} key={city}>
                   {city}
-                </option>
+                </li>
               ))}
-            </select>
+            </ul>
           </div>
           <div>
-            <label htmlFor="month">Month:</label>
-            <select
-              className={styles.months}
-              onChange={handleMonth}
-              name="month"
-              id="month"
+            <button
+              onClick={() => stateToggler(setShowMonths, showMonths)}
+              className={styles.filterBtn}
             >
-              <option value="all" key="All">
-                All
-              </option>
+              Month
+            </button>
+            <ul
+              onClick={handleMonth}
+              className={showMonths ? styles.showMonths : styles.hideMonths}
+            >
+              <li className={styles.option}>All</li>
               {months.map((month) => (
-                <option key={month} value={month}>
+                <li className={styles.option} key={month}>
                   {month}
-                </option>
+                </li>
               ))}
-            </select>
+            </ul>
           </div>
         </div>
-        <button>Apply</button>
+        <button className={styles.applyBtn}>Apply</button>
       </form>
     </section>
   );

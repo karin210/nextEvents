@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <Controls />
-      <h1 className={styles.title}>Trending events</h1>
+      <h1 className={styles.title}>Trending</h1>
       <Events />
     </main>
   );
