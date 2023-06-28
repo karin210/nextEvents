@@ -42,9 +42,7 @@ export default function Page() {
   useEffect(() => {
     async function getData() {
       const res = await fetch(
-        // "https://next-events-pi-sandy.vercel.app/api/events"
-        "http://localhost:3000/api/events"
-        // { next: { revalidate: 10 } }
+        "https://next-events-pi-sandy.vercel.app/api/events"
       );
       const allEvents = await res.json();
 
