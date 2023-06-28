@@ -1,0 +1,72 @@
+.controlsContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+}
+
+.form {
+  font-size: clamp(0.85rem, 1.5vw, 1.15rem);
+  display: flex;
+  flex-flow: row wrap;
+  width: 90%;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+}
+.form .filterText {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+}
+.form .filterBtnsBox {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 3%;
+  gap: 45px 22px;
+  background-color: rgb(228, 228, 228);
+  border-radius: 30px;
+}
+.form .filterBtnsBox .filterBtn {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.form .applyBtn {
+  padding: 7px 7px;
+  font-weight: bold;
+  border-radius: 7px;
+  border: 1px solid rgba(255, 200, 19, 0.664);
+  color: black;
+  background-color: rgba(250, 192, 17, 0.8901960784);
+  cursor: pointer;
+}
+
+.lists {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.hideMonths,
+.hideCities {
+  height: 0;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.showMonths,
+.showCities {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 20vh;
+  padding: 5%;
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  gap: 5px;
+  position: relative;
+  border-radius: 8px;
+  background-color: white;
+  border: 1px solid lightgray;
+  list-style-type: none;
+  overflow: scroll;
+  transition: 0.5s;
+}/*# sourceMappingURL=Controls.module.css.map */

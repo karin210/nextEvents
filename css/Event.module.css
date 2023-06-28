@@ -1,0 +1,114 @@
+.main {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 90%;
+  max-width: 1500px;
+  margin: 0 auto;
+  gap: 45px 22px;
+}
+.main .title {
+  font-size: 1.5rem;
+}
+.main .row1 {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 100%;
+  gap: 20px;
+}
+.main .fig {
+  width: 100%;
+  max-width: 700px;
+}
+.main .fig .img {
+  width: 100%;
+  height: auto;
+}
+.main .infoList {
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: clamp(0.83rem, 1.5vw, 1.2rem);
+  padding: 5%;
+  justify-content: space-around;
+  list-style: none;
+  gap: 30px;
+  border-radius: 7px;
+  border: 1px solid lightgray;
+}
+.main .infoList .icon {
+  width: 20px;
+  height: auto;
+}
+.main .infoList .infoPair {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 5px;
+}
+.main .infoList .infoEven {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.main .infoList .infoEven a {
+  color: rgb(116, 30, 255);
+}
+.main .description {
+  font-size: clamp(0.9rem, 1.5vw, 1.3rem);
+  line-height: 1.7em;
+}
+.main .form {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  max-width: 800px;
+  padding: 5%;
+  gap: 18px;
+  align-items: center;
+  border-radius: 7px;
+  border: 1px solid lightgray;
+}
+.main .form label {
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  font-weight: bold;
+}
+.main .form input {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+.main .form button {
+  width: 50%;
+  max-width: 150px;
+  padding: clamp(3px, 2%, 8px) 0;
+  font-weight: bold;
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  border: 2px solid rgba(255, 200, 19, 0.664);
+  border-radius: 7px;
+  background-color: rgba(250, 192, 17, 0.8901960784);
+}
+.main .formResponse {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.main .registrationIcon {
+  width: 50px;
+  height: auto;
+}
+.main .registeredText {
+  color: green;
+  padding: 10px;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+}
+.main .emailExistText {
+  color: darkorange;
+  padding: 10px;
+  border: 2px solid lightgray;
+  border-radius: 8px;
+}/*# sourceMappingURL=Event.module.css.map */

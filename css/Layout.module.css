@@ -1,0 +1,8 @@
+.body {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 55px;
+  background-color: #f6f6f6;
+  font-family: sans-serif;
+  color: #141414;
+}/*# sourceMappingURL=Layout.module.css.map */

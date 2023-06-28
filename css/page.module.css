@@ -1,0 +1,10 @@
+.main {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 45px 22px;
+}
+.main .title {
+  font-weight: 500;
+  font-size: 1rem;
+  text-align: center;
+}/*# sourceMappingURL=page.module.css.map */

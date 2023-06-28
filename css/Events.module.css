@@ -1,0 +1,10 @@
+.events {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 45px 22px;
+  height: 100%;
+  margin: 0 4%;
+}/*# sourceMappingURL=Events.module.css.map */t: center;
+  gap: 45px 22px;
+}/*# sourceMappingURL=Events.module.css.map */

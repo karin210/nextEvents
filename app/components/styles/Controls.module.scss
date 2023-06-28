@@ -1,36 +1,33 @@
 @use "../../styles/abstracts/mixins.scss";
 @use "../../styles/abstracts/variables.scss";
 
-.form {
-  font-size: clamp(0.85rem, 1.5vw, 1.15rem);
-  @include mixins.flex(row, wrap);
-  width: 90%;
-  align-items: center;
+.controlsContainer {
+  @include mixins.flex(column, nowrap);
   gap: 10px;
-  transition: 0.7s;
-  left: 5%;
-  margin: 0 auto;
+}
+.form {
+  @include mixins.flex(row, wrap);
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 
-  .filterBtns {
+  .filterText {
+    font-weight: 600;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+  }
+  .filterBtnsBox {
     @include mixins.flex(row, wrap);
+    padding: clamp(5px, 5%, 20px);
     gap: variables.$sectionItemsGap;
-  }
+    background-color: rgb(228, 228, 228);
+    border-radius: 30px;
 
-  p {
-    font-weight: bold;
-  }
-
-  .hideMonths,
-  .hideCities {
-    display: none;
-  }
-
-  .showMonths,
-  .showCities {
-    padding: 4px 2px;
-    border-radius: 5px;
-    background-color: whitesmoke;
-    border: 1px solid lightgray;
+    .filterBtn {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
   }
 
   .applyBtn {
@@ -40,7 +37,49 @@
     border: 1px solid rgba(255, 200, 19, 0.664);
     color: black;
     background-color: variables.$controlsColor;
-    margin-left: auto;
-    margin-right: 5px;
+    cursor: pointer;
+  }
+}
+
+.lists {
+  @include mixins.flex(row, wrap);
+  justify-content: center;
+  cursor: pointer;
+}
+
+.hideMonths,
+.hideCities {
+  // width: 0;
+  height: 0;
+  list-style-type: none;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.showMonths,
+.showCities {
+  @include mixins.flex(column, nowrap);
+  height: 20vh;
+  padding: clamp(5px, 5%, 20px);
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  gap: 5px;
+  position: relative;
+  border-radius: 8px;
+  background-color: white;
+  border: 1px solid lightgray;
+  list-style-type: none;
+  overflow: scroll;
+  transition: 0.5s;
+  .option:hover {
+    background-color: lightgray;
+  }
+}
+
+@media (min-width: 714px) {
+  .form {
+    // justify-content: start;
+    .filterBtnsBox {
+      // padding: 1%;
+    }
   }
 }

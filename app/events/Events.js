@@ -15,15 +15,16 @@ export default function Events() {
   let month = searchParams.get("month");
 
   useEffect(() => {
+    console.log(0, city, month);
     async function getData() {
-      // https://next-events-hyppouicf-karin210.vercel.app/api/events
       const res = await fetch(
-        "https://next-events-pi-sandy.vercel.app/api/events"
+        // "https://next-events-pi-sandy.vercel.app/api/events"
+        "http://localhost:3000/api/events"
       );
       const allEvents = await res.json();
       if (
-        (city !== "all" || city !== "") &&
-        (month !== "all" || month !== "" || month !== "undefined")
+        (city !== "All" || city !== "City") &&
+        (month !== "All" || month !== "Month" || month !== "undefined")
       ) {
         const events = allEvents.filter(
           (event) => event.city === city && event.date.month.includes(month)
@@ -31,15 +32,15 @@ export default function Events() {
         setEvents(events);
       }
       if (
-        (city !== "all" || city !== "") &&
-        (month === "all" || month === "" || month === "undefined")
+        (city !== "All" || city !== "City") &&
+        (month === "All" || month === "Month" || month === "undefined")
       ) {
         const events1 = allEvents.filter((event) => event.city === city);
         setEvents(events1);
       }
       if (
-        (month !== "all" || month !== "" || month !== "undefined") &&
-        (city === "all" || city === "")
+        (month !== "All" || month !== "Month" || month !== "undefined") &&
+        (city === "All" || city === "City")
       ) {
         const events = allEvents.filter((event) =>
           event.date.month.includes(month)
@@ -47,8 +48,8 @@ export default function Events() {
         setEvents(events);
       }
       if (
-        (city === "all" || city === "") &&
-        (month === "all" || month === "" || month === "undefined")
+        (city === "All" || city === "City") &&
+        (month === "All" || month === "Month" || month === "undefined")
       ) {
         setEvents(allEvents);
       }

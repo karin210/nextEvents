@@ -1,0 +1,1 @@
+{"version":3,"sources":["../app/styles/page.module.scss","../app/styles/abstracts/mixins.scss","../app/styles/abstracts/variables.scss","page.module.css"],"names":[],"mappings":"AAGA;ECAE,aAAA;EACA,wBAAA;EDGA,cEMgB;ACTlB;AHKE;EACE,gBAAA;EACA,eAAA;EACA,kBAAA;AGHJ","file":"page.module.css"}

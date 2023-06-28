@@ -8,8 +8,8 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 export default function Controls() {
   const [showCities, setShowCities] = useState(false);
   const [showMonths, setShowMonths] = useState(false);
-  const [cityOption, setCityOption] = useState("");
-  const [monthOption, setMonthOption] = useState("");
+  const [cityOption, setCityOption] = useState("City");
+  const [monthOption, setMonthOption] = useState("Month");
   const [cities, setCities] = useState([]);
   const [months, setMonths] = useState([]);
   const searchParams = useSearchParams();
@@ -38,18 +38,20 @@ export default function Controls() {
     setter(!value);
   }
 
-  function handleCity(e) {
-    setCityOption(e.target.value);
-  }
-
-  function handleMonth(e) {
-    setMonthOption(e.target.value);
+  function setTappedValue(setter, e = event) {
+    setter(event.target.innerText);
   }
 
   function applyFilter(e) {
     e.preventDefault();
-    if (cityOption === "All" && (monthOption === "All" || "undefined")) {
+
+    if (
+      (cityOption === "All" || cityOption === "City") &&
+      (monthOption === "All" || monthOption === "Month")
+    ) {
+      // console.log(1, cityOption, monthOption);
       router.push("/events");
+      return;
     }
     current.set("city", cityOption);
     current.set("month", monthOption);
@@ -60,57 +62,74 @@ export default function Controls() {
     } else {
       url = pathName + "events?" + query;
     }
+    // console.log(2, url);
     router.push(url);
   }
 
   return (
     <section className={styles.controlsContainer}>
-      <form className={styles.form} onSubmit={applyFilter}>
-        <div>
-          <p className={styles.filterText}>Select:</p>
+      <form className={styles.form}>
+        <p className={styles.filterText}>Select:</p>
+        <div className={styles.filterBtnsBox}>
+          <button
+            // the button must be setted as type button, otherwise in React buttons within form tags are submit type and the page refresh on click on them
+            type="button"
+            onClick={() => stateToggler(setShowCities, showCities)}
+            className={styles.filterBtn}
+          >
+            {cityOption}
+          </button>
+
+          <span className={styles.btnsDivision}>|</span>
+
+          <button
+            type="button"
+            onClick={() => stateToggler(setShowMonths, showMonths)}
+            className={styles.filterBtn}
+          >
+            {monthOption}
+          </button>
         </div>
-        <div className={styles.filterBtns}>
-          <div>
-            <button
-              onClick={() => stateToggler(setShowCities, showCities)}
-              className={styles.filterBtn}
-            >
-              City
-            </button>
-            <ul
-              onClick={handleCity}
-              className={showCities ? styles.showCities : styles.hideCities}
-            >
-              <li className={styles.option}>All</li>
-              {cities.map((city) => (
-                <li className={styles.option} key={city}>
-                  {city}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <button
-              onClick={() => stateToggler(setShowMonths, showMonths)}
-              className={styles.filterBtn}
-            >
-              Month
-            </button>
-            <ul
-              onClick={handleMonth}
-              className={showMonths ? styles.showMonths : styles.hideMonths}
-            >
-              <li className={styles.option}>All</li>
-              {months.map((month) => (
-                <li className={styles.option} key={month}>
-                  {month}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <button className={styles.applyBtn}>Apply</button>
+        <button onClick={applyFilter} className={styles.applyBtn}>
+          Apply
+        </button>
       </form>
+      <div className={styles.lists}>
+        <ul className={showCities ? styles.showCities : styles.hideCities}>
+          <li
+            onClick={() => setTappedValue(setCityOption)}
+            className={styles.option}
+          >
+            All
+          </li>
+          {cities.map((city) => (
+            <li
+              onClick={() => setTappedValue(setCityOption)}
+              className={styles.option}
+              key={city}
+            >
+              {city}
+            </li>
+          ))}
+        </ul>
+        <ul className={showMonths ? styles.showMonths : styles.hideMonths}>
+          <li
+            onClick={() => setTappedValue(setMonthOption)}
+            className={styles.option}
+          >
+            All
+          </li>
+          {months.map((month) => (
+            <li
+              onClick={() => setTappedValue(setMonthOption)}
+              className={styles.option}
+              key={month}
+            >
+              {month}
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }
