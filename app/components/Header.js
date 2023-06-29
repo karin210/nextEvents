@@ -1,6 +1,8 @@
+// css
+import styles from "./styles/Header.module.scss";
+// system tools
 import Link from "next/link";
 import React from "react";
-import styles from "./styles/Header.module.scss";
 
 export default function Header() {
   return (
@@ -11,7 +13,7 @@ export default function Header() {
         </Link>
       </section>
       <section>
-        <Link href="/events">Events</Link>
+        <Link href="/events">All Events</Link>
         <span></span>
       </section>
     </header>

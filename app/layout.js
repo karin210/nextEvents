@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={styles.body}>
         <Header />
-        {children}
+        <section className={styles.main}>{children}</section>
         <Footer />
       </body>
     </html>

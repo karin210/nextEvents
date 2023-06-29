@@ -40,6 +40,9 @@ export default function Controls() {
 
   function setTappedValue(setter, e = event) {
     setter(event.target.innerText);
+    setter === setCityOption
+      ? stateToggler(setShowCities, showCities)
+      : stateToggler(setShowMonths, showMonths);
   }
 
   function applyFilter(e) {
@@ -49,7 +52,6 @@ export default function Controls() {
       (cityOption === "All" || cityOption === "City") &&
       (monthOption === "All" || monthOption === "Month")
     ) {
-      // console.log(1, cityOption, monthOption);
       router.push("/events");
       return;
     }
@@ -62,7 +64,6 @@ export default function Controls() {
     } else {
       url = pathName + "events?" + query;
     }
-    // console.log(2, url);
     router.push(url);
   }
 

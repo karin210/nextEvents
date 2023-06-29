@@ -1,7 +1,10 @@
-import Image from "next/image";
+// css
 import styles from "./styles/page.module.scss";
-import Controls from "./components/Controls";
+// system tools
+import Image from "next/image";
+// react components
 import Events from "./components/events/Events";
+import Controls from "./components/Controls";
 
 export default function Home() {
   return (
