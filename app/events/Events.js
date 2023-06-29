@@ -18,8 +18,7 @@ export default function Events() {
     console.log(0, city, month);
     async function getData() {
       const res = await fetch(
-        // "https://next-events-pi-sandy.vercel.app/api/events"
-        "http://localhost:3000/api/events"
+        "https://next-events-pi-sandy.vercel.app/api/events"
       );
       const allEvents = await res.json();
       if (
