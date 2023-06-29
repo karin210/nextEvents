@@ -33,16 +33,27 @@
       cursor: pointer;
       color: rgb(88, 88, 88);
     }
+
+    .filterBtn:hover {
+      color: rgb(31, 30, 30);
+    }
   }
 
   .applyBtn {
     padding: 7px 7px;
-    font-weight: bold;
-    border-radius: 7px;
+    font-weight: 500;
+    font-size: clamp(0.7rem, 1.5vw, 1rem);
+    border-radius: 10px;
     border: 1px solid rgba(255, 200, 19, 0.664);
     color: black;
     background-color: variables.$controlsColor;
     cursor: pointer;
+    // transition: 0.5s;
+  }
+
+  .applyBtn:hover {
+    color: rgb(61, 61, 61);
+    // transition: 0.5s;
   }
 }
 

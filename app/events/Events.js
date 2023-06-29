@@ -15,7 +15,6 @@ export default function Events() {
   let month = searchParams.get("month");
 
   useEffect(() => {
-    console.log(0, city, month);
     async function getData() {
       const res = await fetch(
         "https://next-events-pi-sandy.vercel.app/api/events"

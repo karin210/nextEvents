@@ -33,7 +33,6 @@ export default function Page() {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setMessage(data.message);
       })
       .catch((error) => console.log(error));
@@ -51,7 +50,6 @@ export default function Page() {
     }
     getData();
   }, []);
-  console.log(event);
 
   return (
     <main className={styles.main}>

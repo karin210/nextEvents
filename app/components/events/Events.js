@@ -20,8 +20,6 @@ export default function Events() {
       const allEvents = await res.json();
       const trends = allEvents.filter((event) => event.trend);
       setEvents(trends);
-      const rock = allEvents.filter((e) => e.country === "Brazil");
-      console.log(rock);
     }
     getData();
   }, []);
