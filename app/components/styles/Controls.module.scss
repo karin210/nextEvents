@@ -7,9 +7,14 @@
 }
 .form {
   @include mixins.flex(row, wrap);
+  width: 80%;
+  max-width: 500px;
+  border-radius: 30px;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  background-color: rgb(231, 231, 231);
+  margin: 0 auto;
 
   .filterText {
     font-weight: 600;
@@ -17,9 +22,8 @@
   }
   .filterBtnsBox {
     @include mixins.flex(row, wrap);
-    padding: clamp(5px, 5%, 20px);
+    padding: clamp(5px, 3%, 20px);
     gap: variables.$sectionItemsGap;
-    background-color: rgb(228, 228, 228);
     border-radius: 30px;
 
     .filterBtn {
@@ -27,6 +31,7 @@
       background-color: transparent;
       border: none;
       cursor: pointer;
+      color: rgb(88, 88, 88);
     }
   }
 
@@ -49,7 +54,6 @@
 
 .hideMonths,
 .hideCities {
-  // width: 0;
   height: 0;
   list-style-type: none;
   overflow: hidden;
@@ -59,7 +63,7 @@
 .showMonths,
 .showCities {
   @include mixins.flex(column, nowrap);
-  height: 20vh;
+  height: 27vh;
   padding: clamp(5px, 5%, 20px);
   font-size: clamp(1.1rem, 1.5vw, 1.3rem);
   gap: 5px;
@@ -77,9 +81,7 @@
 
 @media (min-width: 714px) {
   .form {
-    // justify-content: start;
     .filterBtnsBox {
-      // padding: 1%;
     }
   }
 }

@@ -3,13 +3,11 @@
 
 .main {
   @include mixins.flex(column, nowrap);
-  // height: auto;
-  // min-height: 100vh;
   gap: variables.$sectionItemsGap;
 
   .title {
     font-weight: 500;
-    font-size: 1rem;
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
     text-align: center;
   }
 }
